@@ -1,4 +1,6 @@
-var express = require('express')
-var hbs = require('hbs')
-var methodOverride = require('method-overeride')
-var bodyParser = require('body-parser')
+const express = require('express')
+const hbs = require('hbs')
+const methodOverride = require('method-overeride')
+const bodyParser = require('body-parser')
+
+const app = express()
