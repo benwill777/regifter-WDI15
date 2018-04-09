@@ -6,14 +6,16 @@ const mongoose = require('mongoose')
 const app = express()
 app.set("view engine", "hbs")
 
-app.listen(3000, () => {
-    console.log("getting turnt on port 3000")
 
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`)
 })
+
 if (process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI)
 } else {
-    mongoose.connect(("mongodb://localhost/regifter"))
+    mongoose.connect("mongodb://localhost/regifter")
 }
 mongoose.connection.once('open', () => {
     console.log(`Mongoose has connected to MongoDB`)
