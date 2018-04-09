@@ -10,8 +10,11 @@ app.listen(3000, () => {
     console.log("getting turnt on port 3000")
 
 })
-mongoose.connect("mongodb://localhost/regifter")
-
+if (process.env.MONGODB_URI) {
+    mongoose.connect(process.env.MONGODB_URI)
+} else {
+    mongoose.connect(("mongodb://localhost/regifter"))
+}
 mongoose.connection.once('open', () => {
     console.log(`Mongoose has connected to MongoDB`)
 })
