@@ -4,10 +4,6 @@ const Gift = require('../models/Gift')
 const mongoose = require('mongoose')
 
 // connect to database
-const PORT = process.env.PORT || 3000
-app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`)
-})
 
 mongoose.connection.once('open', () => {
     console.log(`Mongoose has connected to MongoDB`)
